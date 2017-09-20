@@ -1,4 +1,8 @@
 {
+  "name": "bored-image",
+  "version": "1.0.0",
+  "description": "React Image Component using Placeholder",
+  "main": "src/main.js",
   "scripts": {
     "build": "webpack --config webpack/dev.config.js --watch --progress",
     "start": "webpack-dev-server --config webpack/dev.config.js --hot --inline --progress"
