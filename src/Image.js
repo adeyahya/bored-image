@@ -12,7 +12,8 @@ type Props = {
 
 type State = {
   isLoading: boolean,
-  width: number
+  width: number,
+  inlineStyle: ?any
 }
 
 class BoredImage extends React.Component<Props, State> {
@@ -26,7 +27,6 @@ class BoredImage extends React.Component<Props, State> {
   }
 
   renderFigure() : void {
-    const self = this
     const inlineStyle = {
       width: '100%',
       backgroundColor: '#333',
@@ -34,10 +34,10 @@ class BoredImage extends React.Component<Props, State> {
       margin: '0'
     }
     return (
-      <figure style={ inlineStyle }>
+      <figure style={ this.state.inlineStyle ? this.state.inlineStyle : inlineStyle }>
         { this.state.isLoading
         ? null
-        : <img style={ inlineStyle } src={ self.props.src }/> }
+        : <img style={ this.state.inlineStyle ? this.state.inlineStyle : inlineStyle } src={ this.props.src }/> }
       </figure>
     )
   }
@@ -48,7 +48,13 @@ class BoredImage extends React.Component<Props, State> {
     img.src = this.props.src
     img.onload = function() {
       self.setState({
-        isLoading: false
+        isLoading: false,
+        inlineStyle: {
+          width: '100%',
+          backgroundColor: 'transparent',
+          height:'auto',
+          margin: '0'
+        }
       })
     }
   }
