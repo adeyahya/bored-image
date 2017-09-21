@@ -2,15 +2,31 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import BoredImage from './Image'
+import data from '../data'
 
 class App extends React.Component<{}> {
+  componentWillMount() {
+    console.log(data)
+  }
   render() {
+    const inline = {
+      maxWidth: '400px',
+      margin: '0 auto'
+    }
     return (
-      <div>
-        <BoredImage
-          width={ 2000 }
-          height={ 857 }
-          src='https://softwareengineeringdaily.com/wp-content/uploads/2015/08/nodejs_logo_green.jpg'/>
+      <div style={ inline }>
+        { data.map((item, index) => {
+          return (
+            <div key={ index }>
+              <BoredImage
+                width={ item.width }
+                height={ item.height }
+                src={ item.urls.regular }
+                placeholder={ item.urls.thumb }/>
+              <br/>
+            </div>
+          )
+        }) }
       </div>
     )
   }
