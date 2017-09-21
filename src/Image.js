@@ -42,7 +42,7 @@ class BoredImage extends React.Component<Props, State> {
     )
   }
 
-  componentDidMount() {
+  renderRealImage() : void {
     const self = this
     let img = new Image
     img.src = this.props.src
@@ -51,11 +51,35 @@ class BoredImage extends React.Component<Props, State> {
         isLoading: false
       })
     }
+  }
 
+  observerCallback(entries: Array<any>, observer: any) : void {
+    const self = this
+    entries.forEach(entry => {
+      console.log('hey')
+      if (entry.isIntersecting) {
+        self.renderRealImage()
+        observer.unobserve(entry.target)
+      }
+    })
+  }
+
+  componentDidMount() {
+    const self = this
     const node: any = ReactDOM.findDOMNode(this)
     this.setState({
       width: node.parentNode.clientWidth
     })
+
+    if (!'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
+      observer.observe(node)
+    } else {
+      import(/* webpackChunkName: "intersection-observer" */ 'intersection-observer').then(() => {
+        const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
+        observer.observe(node)
+      })
+    }
   }
 
   render() {
