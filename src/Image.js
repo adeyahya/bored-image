@@ -71,7 +71,7 @@ class BoredImage extends React.Component<Props, State> {
       width: node.parentNode.clientWidth
     })
 
-    if (!'IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
       observer.observe(node)
     } else {
