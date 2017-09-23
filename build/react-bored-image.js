@@ -87,7 +87,7 @@ module.exports =
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + ".react-bored-image.js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"intersection-observer"}[chunkId]||chunkId) + ".bundle.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -10437,7 +10437,7 @@ var BoredImage = function (_React$Component) {
     value: function renderFigure() {
       var inlineStyle = {
         width: '100%',
-        backgroundColor: '#333',
+        backgroundColor: this.props.placeholder ? 'transparent' : '#333',
         height: this.getHeightRatio(this.props.width, this.props.height, this.state.width) + 'px',
         margin: '0',
         overflow: 'hidden'
@@ -10445,12 +10445,10 @@ var BoredImage = function (_React$Component) {
 
       var inlineStylePlaceholder = {
         width: '100%',
-        backgroundColor: '#333',
         height: this.getHeightRatio(this.props.width, this.props.height, this.state.width) + 'px',
         margin: '0',
         filter: 'blur(10px)',
-        transform: 'scale(1.2)',
-        transition: 'all .6s'
+        transform: 'scale(1.2)'
       };
 
       return React.createElement(
@@ -10489,7 +10487,6 @@ var BoredImage = function (_React$Component) {
     value: function observerCallback(entries, observer) {
       var self = this;
       entries.forEach(function (entry) {
-        console.log('hey');
         if (entry.isIntersecting) {
           self.renderRealImage();
           observer.unobserve(entry.target);

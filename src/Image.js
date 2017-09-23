@@ -13,7 +13,7 @@ type Props = {
 type State = {
   isLoading: boolean,
   width: number,
-  inlineStyle: ?any,
+  inlineStyle?: any,
   source: string
 }
 
@@ -79,7 +79,6 @@ class BoredImage extends React.Component<Props, State> {
   observerCallback(entries: Array<any>, observer: any) : void {
     const self = this
     entries.forEach(entry => {
-      console.log('hey')
       if (entry.isIntersecting) {
         self.renderRealImage()
         observer.unobserve(entry.target)

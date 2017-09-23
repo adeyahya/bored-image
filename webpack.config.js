@@ -7,6 +7,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: 'react-bored-image.js',
+    chunkFilename: '[name].bundle.js',
     libraryTarget: 'commonjs2'
   },
   module: {
