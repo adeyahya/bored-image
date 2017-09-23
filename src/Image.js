@@ -31,7 +31,7 @@ class BoredImage extends React.Component<Props, State> {
   renderFigure() : void {
     const inlineStyle = {
       width: '100%',
-      backgroundColor: '#333',
+      backgroundColor: this.props.placeholder ? 'transparent' : '#333',
       height: `${ this.getHeightRatio(this.props.width, this.props.height, this.state.width) }px`,
       margin: '0',
       overflow: 'hidden'
@@ -39,12 +39,10 @@ class BoredImage extends React.Component<Props, State> {
 
     const inlineStylePlaceholder = {
       width: '100%',
-      backgroundColor: '#333',
       height: `${ this.getHeightRatio(this.props.width, this.props.height, this.state.width) }px`,
       margin: '0',
       filter: 'blur(10px)',
-      transform: 'scale(1.2)',
-      transition: 'all .6s'
+      transform: 'scale(1.2)'
     }
 
     return (
