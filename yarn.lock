@@ -908,9 +908,10 @@ boom@2.x.x:
     hoek "2.x.x"
 
 bored-image@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/bored-image/-/bored-image-1.0.3.tgz#d4b22b2eeefead40beec3302eb3117a111e025a4"
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/bored-image/-/bored-image-1.0.4.tgz#ea1ad05a4bf18e5148ca11af2b2e8a4fffffaa42"
   dependencies:
+    bored-image "^1.0.3"
     intersection-observer "^0.4.2"
     prop-types "^15.5.10"
     react "^15.6.1"
