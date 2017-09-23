@@ -907,6 +907,16 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bored-image@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/bored-image/-/bored-image-1.0.3.tgz#d4b22b2eeefead40beec3302eb3117a111e025a4"
+  dependencies:
+    intersection-observer "^0.4.2"
+    prop-types "^15.5.10"
+    react "^15.6.1"
+    react-dom "^15.6.1"
+    recompose "^0.25.0"
+
 brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
