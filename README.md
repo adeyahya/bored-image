@@ -11,14 +11,16 @@ Lazy Loading image with placeholder in React.js
 ```javascript
 import BoredImage from 'bored-image'
 
-function App({}) {
+function App() {
   return (
-    <BoredImage
-      src={ /* source */ }
-      placeholder={ /* placeholder */ }
-      width={ /* naturalWidth */ }
-      height={ /* naturalHiehgt */ }
-      alt={ /* alt */ }/>
+    <div>
+      <BoredImage
+        src={ /* source */ }
+        placeholder={ /* placeholder */ }
+        width={ /* naturalWidth */ }
+        height={ /* naturalHiehgt */ }
+        alt={ /* alt */ }/>
+    </div>
   )
 }
 ```
