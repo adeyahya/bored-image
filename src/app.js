@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import BoredImage from 'bored-image'
+import BoredImage from './Image'
 import data from '../data'
 
 class App extends React.Component<{}> {

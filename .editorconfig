@@ -9,5 +9,4 @@ indent_style = space
 
 # Indentation override for all JS under lib directory
 [*.{js,html,css,json,md}]
-indent_style = space
 indent_size = 2
