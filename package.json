@@ -1,8 +1,10 @@
 {
+  "author": "Ade Yahya (adeyahyaprasetyo@gmail.com)",
   "name": "bored-image",
   "version": "1.0.4",
   "description": "React Image Component using Placeholder",
   "main": "build/react-bored-image.js",
+  "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress -p",
     "build:demo": "NODE_ENV=production webpack --config webpack/dev.config.js -p --progress",
