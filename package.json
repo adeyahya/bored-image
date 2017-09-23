@@ -2,9 +2,9 @@
   "name": "bored-image",
   "version": "1.0.0",
   "description": "React Image Component using Placeholder",
-  "main": "src/main.js",
+  "main": "build/react-bored-image.js",
   "scripts": {
-    "build": "webpack --config webpack/dev.config.js --watch --progress",
+    "build": "webpack --progress",
     "start": "webpack-dev-server --config webpack/dev.config.js --hot --inline --progress"
   },
   "dependencies": {
@@ -29,6 +29,9 @@
     "webpack-dev-server": "^2.8.2"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "intersection-observer": "^0.4.2"
   }
 }
