@@ -55,7 +55,7 @@ class App extends React.Component<{},State> {
 
   render() {
     const inline = {
-      maxWidth: '400px',
+      maxWidth: '800px',
       margin: '0 auto',
       padding: '0 5px',
       boxSizing: 'border-box',
