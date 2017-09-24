@@ -11,10 +11,10 @@ type Props = {
 }
 
 type State = {
-  isLoading: boolean,
+  isLoading?: boolean,
   inlineStyle?: any,
   inlineStyleImage?: any,
-  source: string
+  source?: string
 }
 
 class BoredImage extends React.Component<Props, State> {
@@ -52,11 +52,11 @@ class BoredImage extends React.Component<Props, State> {
     const self = this
     let img = new Image
     const node: any = ReactDOM.findDOMNode(this)
-    const inlineStyle = Object.assign(this.state.inlineStyle, {
+    const inlineStyle = Object.assign({}, this.state.inlineStyle, {
       height: 'auto'
     })
 
-    const inlineStyleImage = Object.assign(this.state.inlineStyleImage, {
+    const inlineStyleImage = Object.assign({}, this.state.inlineStyleImage, {
       filter: 'none'
     })
 
@@ -91,11 +91,11 @@ class BoredImage extends React.Component<Props, State> {
     }
 
     const node: any = ReactDOM.findDOMNode(this)
-    const inlineStyle: any = Object.assign(this.state.inlineStyle, {
+    const inlineStyle: any = Object.assign({}, this.state.inlineStyle, {
       height: this.getHeightRatio(this.props.width, this.props.height, node.parentNode.clientWidth) + 'px'
     })
+    
     this.setState({
-      width: node.parentNode.clientWidth,
       inlineStyle: inlineStyle
     })
 
