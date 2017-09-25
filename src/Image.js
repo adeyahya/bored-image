@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-require('intersection-observer')
 
 type Props = {
   src: string,
@@ -72,6 +71,24 @@ class BoredImage extends React.Component<Props, State> {
     }
   }
 
+  supportsIntersectionObserver() {
+    return (
+      'IntersectionObserver' in global &&
+      'IntersectionObserverEntry' in global &&
+      'intersectionRatio' in IntersectionObserverEntry.prototype
+    )
+  }
+
+  loadPolyfills() {
+    const polyfills = []
+   
+    if (!this.supportsIntersectionObserver()) {
+      polyfills.push(import('intersection-observer'))
+    }
+   
+    return Promise.all(polyfills)
+  }
+
   observerCallback(entries: Array<any>, observer: any) : void {
     const self = this
     entries.forEach(entry => {
@@ -100,8 +117,11 @@ class BoredImage extends React.Component<Props, State> {
       inlineStyle: inlineStyle
     })
 
-    const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
-    observer.observe(node)
+    this.loadPolyfills()
+      .then(() => {
+        const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
+        observer.observe(node)
+      })
   }
 
   render() {
