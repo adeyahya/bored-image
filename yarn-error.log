@@ -17,7 +17,7 @@ npm manifest:
   {
     "author": "Ade Yahya (adeyahyaprasetyo@gmail.com)",
     "name": "bored-image",
-    "version": "1.1.2",
+    "version": "1.1.1",
     "description": "React Image Component using Placeholder",
     "main": "build/react-bored-image.js",
     "license": "MIT",
@@ -32,7 +32,6 @@ npm manifest:
       "prop-types": "^15.5.10",
       "react": "^15.6.1",
       "react-dom": "^15.6.1",
-      "recompose": "^0.25.0",
       "superagent": "^3.6.0"
     },
     "devDependencies": {
@@ -4204,14 +4203,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/bored-image: ESOCKETTIMEDOUT
-      at ClientRequest.<anonymous> (/Users/adeyahya/.nvm/versions/node/v7.10.1/lib/node_modules/yarn/lib/cli.js:118001:19)
+  Error: https://registry.yarnpkg.com/bored-image: You cannot publish over the previously published version 1.1.1.
+      at Request.params.callback [as _callback] (/Users/adeyahya/.nvm/versions/node/v7.10.1/lib/node_modules/yarn/lib/cli.js:60302:18)
+      at Request.self.callback (/Users/adeyahya/.nvm/versions/node/v7.10.1/lib/node_modules/yarn/lib/cli.js:117370:22)
+      at emitTwo (events.js:106:13)
+      at Request.emit (events.js:194:7)
+      at Request.<anonymous> (/Users/adeyahya/.nvm/versions/node/v7.10.1/lib/node_modules/yarn/lib/cli.js:118353:10)
+      at emitOne (events.js:96:13)
+      at Request.emit (events.js:191:7)
+      at Gunzip.<anonymous> (/Users/adeyahya/.nvm/versions/node/v7.10.1/lib/node_modules/yarn/lib/cli.js:118273:12)
       at Object.onceWrapper (events.js:293:19)
-      at emitNone (events.js:86:13)
-      at ClientRequest.emit (events.js:188:7)
-      at TLSSocket.emitTimeout (_http_client.js:679:10)
-      at Object.onceWrapper (events.js:293:19)
-      at emitNone (events.js:86:13)
-      at TLSSocket.emit (events.js:188:7)
-      at TLSSocket.Socket._onTimeout (net.js:352:8)
-      at ontimeout (timers.js:386:14)
+      at emitNone (events.js:91:20)
