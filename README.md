@@ -1,13 +1,14 @@
 # Bored Image
-Lazy Loading image with placeholder in React.js
+Bored Image is a JavaScript module that can be used to replace `<img/>` element cause it integrated with lazy-load uisng IntersectionObserver and using color & blurry placeholder that has same dimension as original source. It will be usefull for user that has slow internet connection to reduce expand effect when the original source has resolved.
 
 ![](demo.gif)
 
 ### [DEMO](https://bored-image.now.sh/)
 
-## Usage
+## Installation
 `npm install bored-image --save`
 
+## Usage
 ```javascript
 import BoredImage from 'bored-image'
 
@@ -17,6 +18,7 @@ function App() {
       <BoredImage
         src={ /* source */ }
         placeholder={ /* placeholder */ }
+        color={ /* color placeholder ex: #333 */ }
         width={ /* naturalWidth */ }
         height={ /* naturalHiehgt */ }
         alt={ /* alt */ }/>

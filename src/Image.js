@@ -63,7 +63,7 @@ class BoredImage extends React.Component<Props, State> {
 
     const inlineStyleImage = Object.assign({}, this.state.inlineStyleImage, {
       filter: 'blur(0)',
-      transform: 'scale(1.3)'
+      transform: 'scale(1)'
     })
 
     if (this.props.placeholder) {
@@ -106,7 +106,7 @@ class BoredImage extends React.Component<Props, State> {
     })
     const observer = new IntersectionObserver(self.observerCallback.bind(this), {
       root: null,
-      rootMargin: "0px 0px 400px 0px"
+      rootMargin: `0px 0px ${window.innerHeight * (3 / 4)}px 0px`
     })
     observer.observe(node)
   }
