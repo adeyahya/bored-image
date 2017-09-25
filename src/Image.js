@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+require('intersection-observer')
 
 type Props = {
   src: string,
@@ -99,15 +100,8 @@ class BoredImage extends React.Component<Props, State> {
       inlineStyle: inlineStyle
     })
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
-      observer.observe(node)
-    } else {
-      import(/* webpackChunkName: "intersection-observer" */ 'intersection-observer').then(() => {
-        const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
-        observer.observe(node)
-      })
-    }
+    const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
+    observer.observe(node)
   }
 
   render() {
