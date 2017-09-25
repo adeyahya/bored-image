@@ -47,7 +47,8 @@ class App extends React.Component<{},State> {
             width={ item.width }
             height={ item.height }
             src={ item.urls.regular }
-            placeholder={ item.urls.thumb }/>
+            placeholder={ item.urls.thumb }
+            color={ item.color }/>
         </div>
       )
     })

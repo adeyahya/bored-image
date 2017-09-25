@@ -6,6 +6,7 @@ type Props = {
   src: string,
   alt?: string,
   placeholder?: string,
+  color?: string,
   width: number,
   height: number
 }
@@ -21,7 +22,7 @@ class BoredImage extends React.Component<Props, State> {
   state = {
     isLoading: true,
     inlineStyle: {
-      backgroundColor: '#f6f6f6',
+      backgroundColor: this.props.color ? this.props.color : '#f6f6f6',
       position: 'relative',
       width: '100%',
       margin: '0',
@@ -29,7 +30,10 @@ class BoredImage extends React.Component<Props, State> {
     },
     inlineStyleImage: {
       width: '100%',
-      filter: 'blur(50px)'
+      filter: 'blur(25px)',
+      transform: 'scale(1.3)',
+      height: 'auto',
+      transition: 'all 0.5s'
     },
     source: ''
   }
@@ -53,12 +57,20 @@ class BoredImage extends React.Component<Props, State> {
     let img = new Image
     const node: any = ReactDOM.findDOMNode(this)
     const inlineStyle = Object.assign({}, this.state.inlineStyle, {
-      height: 'auto'
+      height: 'auto',
+      backgroundColor: 'transparent'
     })
 
     const inlineStyleImage = Object.assign({}, this.state.inlineStyleImage, {
-      filter: 'none'
+      filter: 'blur(0)',
+      transform: 'scale(1.3)'
     })
+
+    if (this.props.placeholder) {
+      this.setState({
+        source: this.props.placeholder
+      })
+    }
 
     img.src = this.props.src
     img.onload = function() {
@@ -84,13 +96,6 @@ class BoredImage extends React.Component<Props, State> {
   componentDidMount() {
     require('intersection-observer')
     const self = this
-
-    if (this.props.placeholder) {
-      this.setState({
-        source: this.props.placeholder
-      })
-    }
-
     const node: any = ReactDOM.findDOMNode(this)
     const inlineStyle: any = Object.assign({}, this.state.inlineStyle, {
       height: this.getHeightRatio(this.props.width, this.props.height, node.parentNode.clientWidth) + 'px'
@@ -99,7 +104,10 @@ class BoredImage extends React.Component<Props, State> {
     this.setState({
       inlineStyle: inlineStyle
     })
-    const observer = new IntersectionObserver(self.observerCallback.bind(this), {})
+    const observer = new IntersectionObserver(self.observerCallback.bind(this), {
+      root: null,
+      rootMargin: "0px 0px 400px 0px"
+    })
     observer.observe(node)
   }
 
