@@ -7,6 +7,7 @@ type Props = {
   alt?: string,
   placeholder?: string,
   color?: string,
+  className?: string,
   width: number,
   height: number
 }
@@ -113,7 +114,7 @@ class BoredImage extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className={ this.props.className ? this.props.className : "bored-image" }>
         { this.renderFigure() }
       </div>
     )
