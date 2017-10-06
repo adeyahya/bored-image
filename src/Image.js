@@ -50,10 +50,6 @@ class BoredImage extends React.Component<Props, State> {
           style={ this.state.inlineStyleImage }
           src={ this.state.source }
           alt={this.props.alt ? this.props.alt : 'image'}/>
-        
-        <noscript>
-          <img src={this.props.src} alt={this.props.alt ? this.props.alt : 'image'}/>
-        </noscript>
       </figure>
     )
   }
