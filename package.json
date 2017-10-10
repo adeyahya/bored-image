@@ -1,7 +1,7 @@
 {
   "author": "Ade Yahya (adeyahyaprasetyo@gmail.com)",
   "name": "bored-image",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "React Image Component using Placeholder",
   "main": "build/react-bored-image.js",
   "license": "MIT",
@@ -13,8 +13,8 @@
   "dependencies": {
     "intersection-observer": "^0.4.2",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "superagent": "^3.6.0"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "intersection-observer": "^0.4.2",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
