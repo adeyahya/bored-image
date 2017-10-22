@@ -3,7 +3,7 @@ Bored Image is a JavaScript module that can be used to replace `<img/>` element 
 
 ![](demo.gif)
 
-### [DEMO](https://bored-image.now.sh/)
+### [DEMO](https://bored-image.ihavemind.com/)
 
 ## Installation
 `npm install bored-image --save`
