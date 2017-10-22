@@ -1,12 +1,14 @@
 // @flow
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+require('babel-polyfill')
+import React from 'react'
+import ReactDOM from 'react-dom'
 import request from 'superagent'
 import BoredImage from './Image'
 
 type State = {
   data: Array<any>,
-  isLoading: boolean
+  isLoading: boolean,
+  page: number
 }
 
 class App extends React.Component<{},State> {
@@ -14,21 +16,43 @@ class App extends React.Component<{},State> {
     super(props)
     this.state = {
       data: [],
-      isLoading: true
+      isLoading: true,
+      page: 1
     }
   }
-  componentWillMount() {
-    let self = this
-    request.get('https://unsplash-api.now.sh/api/photos')
-      .end(function(err, res) {
-        if (err)
-          return
-        
-        self.setState({
-          data: res.body,
-          isLoading: false
-        })
-      })
+
+  intersect: any = this._intersect.bind(this)
+
+  async _loadData() {
+    this.setState({
+      isLoading: true
+    })
+
+    const res = await request.get(`https://unsplash-server.ihavemind.com/api/photos/curated/?per_page=20&page=${this.state.page}`)
+    const data = JSON.parse(res.text)
+    this.setState({
+      data: [
+        ...this.state.data,
+        ...data
+      ],
+      isLoading: false,
+      page: this.state.page + 1
+    })
+  }
+
+  _intersect(entries, observer) {
+    const self = this
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        self._loadData()
+      }
+    })
+  }
+
+  componentDidMount() {
+    require('intersection-observer')
+    const observer = new IntersectionObserver(this.intersect, {})
+    observer.observe(document.querySelector("#intersectMe"))
   }
 
   renderImages() {
@@ -68,9 +92,12 @@ class App extends React.Component<{},State> {
       <div style={ inline }>
         <h1>React Bored Image</h1>
         <p>Lazy Load image using blurry placeholder</p>
+        { this.renderImages() }
         { this.state.isLoading 
         ? <p>Loading data ...</p>
-        : this.renderImages() }
+        : null }
+
+        <div id="intersectMe"></div>
       </div>
     )
   }

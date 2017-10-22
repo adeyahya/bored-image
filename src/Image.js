@@ -33,8 +33,7 @@ class BoredImage extends React.Component<Props, State> {
       width: '100%',
       filter: 'blur(25px)',
       transform: 'scale(1.3)',
-      height: 'auto',
-      transition: 'all 0.5s'
+      height: 'auto'
     },
     source: ''
   }

@@ -10,6 +10,7 @@
     "flow"
   ],
   "plugins": [
+    ["transform-async-to-generator"],
     ["transform-class-properties", { "spec": true }],
     ["flow-react-proptypes"],
     ["syntax-dynamic-import"]
