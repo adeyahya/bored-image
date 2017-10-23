@@ -16,7 +16,7 @@ class App extends React.Component<{},State> {
     super(props)
     this.state = {
       data: [],
-      isLoading: true,
+      isLoading: false,
       page: 1
     }
   }
