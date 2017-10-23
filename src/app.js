@@ -24,6 +24,10 @@ class App extends React.Component<{},State> {
   intersect: any = this._intersect.bind(this)
 
   async _loadData() {
+    if (this.state.isLoading) {
+      return
+    }
+
     this.setState({
       isLoading: true
     })
